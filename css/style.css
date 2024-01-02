@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(0, 255, 191);
+}
+.containerNotes {
+    width: 500px;
+    background-color: #fff;
+    border: 2px solid rgb(95, 133, 6);
+    border-radius: 20px;
+    overflow: hidden;
+    
+
+}
+.addNotes h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 15px;
+    background-color: rgb(7, 230, 174);
+    border-radius: 100%;
+}
+.addNotes textarea {
+    margin-left: 2px;
+    width: 99%;
+}
+.addNotes p{
+    text-align: center;
+}
+.addNotes button{ 
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 99%;
+    padding: 5px;
+    cursor: pointer;
+    color: #fff;
+    background-color: rgb(22, 154, 231);
+    margin-left: 3px;
+}
+.addNotes button:hover{ 
+    background-color: rgb(9, 68, 102);
+   
+}
+
+.error{
+    display: block;
+    background-color: rgb(0, 25, 107);
+    text-align: center;
+    padding: 5px;
+    margin-top: 20px;
+    color: #fff;
+    
+}
+.myNotes {
+}
+.list-notes {
+}
