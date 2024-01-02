@@ -1,11 +1,16 @@
 const containerList= document.getElementById("list-notes");
 const form = document.getElementById("form");
-
-form.addEventListener("submit", addList);
-
 let listNotes= [];
 
 
+form.addEventListener("submit", addList);
+document.addEventListener("DOMContentLoaded", ()=>  {
+    listNotes= JSON.parse(localStorage.getItem("list"))|| []
+
+    crearHTML();
+
+    
+})
 
 
 function addList(e){
@@ -17,10 +22,16 @@ function addList(e){
         return;
     }
 
-    listNotes= [... listNotes, textArea];
-    console.log(listNotes);
+    let listNotesObj ={
+        id:Date.now(),
+        textArea
+    }
+
+    listNotes= [... listNotes, listNotesObj];
+
     crearHTML();
 
+    form.reset();
 }
 
 function mostrarError(error){
@@ -34,6 +45,38 @@ function mostrarError(error){
     }, 2000);
 }
 function crearHTML(){
-    console.log("añadiendo nota");
+    limpiarHTML();
 
+    listNotes.forEach(list=> {
+        const li= document.createElement("li");
+        const deleteList= document.createElement("a");
+        deleteList.classList.add("delete-list");
+        deleteList.textContent= "X";
+        deleteList.onclick= () => {
+            borrarLista(list.id);
+        }
+        
+        li.textContent=list.textArea;
+        containerList.appendChild(li);
+        li.appendChild(deleteList);
+    });
+    sincronizarNotas();
+}
+function sincronizarNotas(){
+    localStorage.setItem("list",JSON.stringify(listNotes));
+
+}
+function borrarLista(id){
+    listNotes= listNotes.filter(list=>list.id !== id);
+    crearHTML();
+
+
+}
+
+function limpiarHTML (){
+    while(containerList.firstChild){
+        containerList.removeChild(containerList.firstChild);
+
+
+    }
 }

@@ -15,7 +15,7 @@ body{
     width: 500px;
     background-color: #fff;
     border: 2px solid rgb(95, 133, 6);
-    border-radius: 20px;
+    
     overflow: hidden;
     
 
@@ -56,9 +56,22 @@ body{
     padding: 5px;
     margin-top: 20px;
     color: #fff;
-    
+
 }
 .myNotes {
+    margin: 15px;
 }
-.list-notes {
+.list-notes{
+    position: relative;
+
+}
+.delete-list{
+    position: absolute;
+    right: 0;
+    background-color: red;
+    border-radius: 10px;
+    padding: 0 5px;
+    color:#fff;
+    font-size: 11px;
+    cursor: pointer;
 }
